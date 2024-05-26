@@ -1,0 +1,23 @@
+ {% extends "main/base.html" %}
+
+
+ {% block content %}
+    <body>
+        <br>
+        <br>
+
+        <div class="text-center">
+            <h3>Мой To-do list</h3>
+
+            <br>
+
+            <h5>Создавайте задачи, чтоб не забывать</h5>
+
+            <hr>
+
+            <br> 
+
+            <a class="btn btn-primary" type="button" href="{% url 'main:register'%}">Создать аккаунт</a>
+        </div>
+    </body>
+ {% endblock content %}

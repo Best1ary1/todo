@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+        <div>
+            <h3>Обновить задачу</h3>
+            <h6>Обновите данные о вашей задаче</h6>
+
+            <hr>
+
+            <br>
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                {{form|crispy}}
+
+                <br>
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2">Обновить</button>
+            </form>
+        </div>
+    </body>
+
+{% endblock content %}

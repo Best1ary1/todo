@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="container ">
+        <h3>Добро пожаловать, {{user}}!</h3>
+        <hr>
+        <a class="btn btn-outline-primary btn-md" href="{% url 'main:create-task'%}">
+            Добавить задачу
+        </a>
+        <hr>
+        <div class="row">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Завершено</th>
+                        <th scope="col">Дата создания</th>
+
+                        <th scope="col">Просмотр</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if tasks %}
+                    {% for task in  tasks %}
+                    <tr>
+                        <td>{{task.id}}</td>
+                        <td>{{task.title}}</td>
+                        <td>{{task.completed|yesno:'Да,Нет'}}</td>
+                        <td>{{task.created}}</td>
+
+                        <td> <a href="{% url "main:task" task.id %}">Просмотреть</a></td>
+
+                       
+                    </tr>
+                        
+                    {% endfor %}
+                    
+                {% endif %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock content %} 
+
+{% for task in tasks %} 
+<tr>
+    <td>{{task.id}}</td>
+    <td>{{task.title}}</td>
+    <td>{{task.completed|yesno:'Yes,No'}}</td>
+    <td>{{task.created}}</td>
+
+    <td><a href="">Click to view</a></td>
+</tr>
+
+{% endfor %}
